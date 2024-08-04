@@ -1,7 +1,7 @@
 #!/usr/bin/env nu
 
 def main [...args] {
-    let launch = 'Get-CimInstance MSFT_VSInstance -Namespace root/cimv2/vs | ConvertTo-Json'
+    let devcmd = 'Get-CimInstance MSFT_VSInstance -Namespace root/cimv2/vs | ConvertTo-Json'
     | powershell.exe -Command $in
     | from json
     | $'($in.InstallLocation)\Common7\Tools\VsDevCmd.bat'
@@ -18,5 +18,5 @@ def main [...args] {
         }
     } | str join ' ' | $'link ($in)'
 
-    $'cmd /c """($launch)"" -no_logo -arch=amd64 && ($link)"' | powershell.exe -Command $in
+    $'cmd /c """($devcmd)"" -no_logo -arch=amd64 && ($link)"' | powershell.exe -Command $in
 }
