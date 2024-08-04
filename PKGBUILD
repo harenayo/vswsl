@@ -1,5 +1,5 @@
 pkgname='vswsl'
-pkgver='0.0.0'
+pkgver='0.1.0'
 pkgrel='1'
 pkgdesc='Visual Studio commands in WSL'
 arch=('any')
